@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="design de um relogio analogico em funcionamento">
+    <meta http-equiv="refresh" content="30">
+    <meta name="author" content="Arthur de Lima">
+    <meta name="keywords" content="design, relogio, analogico">
+    <link rel="shortcut icon" href="img/relogioicon.png" type="image/x-icon">
+    <title>Design de relógio analógico</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="analog-clock">
+        <div class="hour-container">
+            <ul class="hour-number">
+                <li>
+                    <div class="num">3</div>
+                </li>
+                <li>
+                    <div class="num">6</div>
+                </li>
+                <li>
+                    <div class="num">9</div>
+                </li>
+                <li>
+                    <div class="num">12</div>
+                </li>
+            </ul>
+            <ul class="hour-marks">
+                <li>
+                    <div class="mark"></div>
+                </li>
+                <li>
+                    <div class="mark"></div>
+                </li>
+                <li>
+                    <div class="mark"></div>
+                </li>
+                <li>
+                    <div class="mark"></div>
+                </li>
+                <li>
+                    <div class="mark"></div>
+                </li>
+                <li>
+                    <div class="mark"></div>
+                </li>
+                <li>
+                    <div class="mark"></div>
+                </li>
+                <li>
+                    <div class="mark"></div>
+                </li>
+            </ul>
+            <ul class="middle-lines">
+                <li>
+                    <div class="line"></div>
+                </li>
+                <li>
+                    <div class="line"></div>
+                </li>
+                <li>
+                    <div class="line"></div>
+                </li>
+                <li>
+                    <div class="line"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="hands-container">
+            <div class="hand hr-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand sec-hand"></div>
+        </div>
+        <div class="center-dot"></div>
+    </div>
+
+    <script>
+        function setClock(){
+            // mostra a hora atual
+            let now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            hrValue = (hours * 30) + (minutes * 6) / 12;
+            minValue = minutes * 6;
+            secValue = seconds * 6;
+
+            document.querySelector(".hr-hand").style.transform = "rotate(" + hrValue + "deg)";
+            document.querySelector(".min-hand").style.transform = "rotate(" + minValue + "deg)";
+            document.querySelector(".sec-hand").style.transform = "rotate(" + secValue + "deg)";
+        }
+
+        setInterval(setClock, 1000);
+    </script>
+</body>
+
+</html>
